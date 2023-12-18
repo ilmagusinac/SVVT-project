@@ -1,0 +1,20 @@
+{
+  "name": "project-automation",
+  "version": "1.0.0",
+  "description": "- Website undertaking: zara.com - Project conducted by: Ilma Gusinac and Amina Tupković",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --runInBand"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^29.5.11",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.16.0"
+  }
+}
