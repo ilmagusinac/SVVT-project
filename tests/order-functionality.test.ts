@@ -1,0 +1,58 @@
+import { HomePage } from "../core/page-objects/home-page";
+import { Builder, By, WebDriver } from "selenium-webdriver";
+import { createDriver, quitDriver } from "../core/config/driver-setup";
+import { readFileSync } from "fs";
+import * as path from "path";
+import { FilteringJeansPage } from "../core/page-objects/filtering-jeans-page";
+import { LoginPage } from "../core/page-objects/login-page";
+import { CartPage } from "../core/page-objects/cart-page";
+import { BillingInfoPage } from "../core/page-objects/billinginfo-page";
+import { CheckoutMethodSelection } from "../core/page-objects/checkout-methodselect-page";
+
+
+const dataFilePath = path.resolve(__dirname, "../core/data/data.json");
+const testData = JSON.parse(readFileSync(dataFilePath, "utf8"));
+
+let driver: WebDriver;
+let homePage: HomePage;
+let filteringJeansPage: FilteringJeansPage;
+let loginPage: LoginPage;
+let cartPage: CartPage;
+let billingInfoPage: BillingInfoPage;
+let checkoutMethodSelection: CheckoutMethodSelection;
+
+beforeAll(async () => {
+    driver = await createDriver(testData.url.home_page);
+    homePage = new HomePage(driver);
+    filteringJeansPage = new FilteringJeansPage(driver);
+    loginPage = new LoginPage(driver);
+    cartPage = new CartPage(driver);
+    billingInfoPage = new BillingInfoPage(driver);
+    checkoutMethodSelection = new CheckoutMethodSelection(driver);
+},10000);
+
+test("Order functionality", async () => {
+    await homePage.HomePageNavigation();
+    await homePage.clickLogInButton();
+    await loginPage.clickEmailField();
+    await loginPage.enterEmail();
+    await loginPage.clickPasswordField()
+    await loginPage.enterPassword();
+    await loginPage.clickLoginButton();
+    await homePage.clickMenuButton();
+    await homePage.clickNewCollection();
+    await homePage.clickJeansButton();
+    await filteringJeansPage.clickColour();
+    await filteringJeansPage.clickBeigeColour();
+    await filteringJeansPage.clickRise();
+    await filteringJeansPage.clickHighWaist();
+    await filteringJeansPage.clickPlusAdd();
+    await filteringJeansPage.click36Size();
+    await homePage.clickCartButton();
+    await cartPage.clickContinueButton();
+  
+},100000);
+
+afterAll(async () => {
+    await quitDriver(driver);
+},10000);

@@ -1,0 +1,34 @@
+import { Builder, By, WebDriver } from "selenium-webdriver";
+import { createDriver, quitDriver } from "../core/config/driver-setup";
+import { readFileSync } from "fs";
+import * as path from "path";
+
+import { HomePage } from "../core/page-objects/home-page";
+import { SearchPage } from "../core/page-objects/search-page";
+
+const dataFilePath = path.resolve(__dirname, "../core/data/data.json");
+const testData = JSON.parse(readFileSync(dataFilePath, "utf8"));
+
+let driver: WebDriver;
+let homePage: HomePage;
+let searchPage: SearchPage;
+
+beforeAll(async () => {
+    driver = await createDriver(testData.url.home_page);
+    homePage = new HomePage(driver);
+    searchPage = new SearchPage(driver);
+},10000);
+
+test("Search functionality", async () => {
+    await homePage.HomePageNavigation();
+    await homePage.clickSearchButton();
+    await searchPage.clickSearchButton();
+    await searchPage.enterItemName();
+    await searchPage.clickSearchButton();
+    await homePage.navigateToHomePage();
+  
+},10000);
+
+afterAll(async () => {
+    await quitDriver(driver);
+},10000);

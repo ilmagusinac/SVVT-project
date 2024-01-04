@@ -1,0 +1,78 @@
+{
+    "url": {
+        "first_page": "https://www.zara.com",
+        "home_page": "https://www.zara.com/ba/en/",
+        "help_page": "https://www.zara.com/ba/en/help-center/"
+    },
+
+    "social_media_url":{
+        "tiktok": "https://www.tiktok.com/@zara/",
+        "instagram": "https://www.instagram.com/zara/",
+        "facebook": "https://www.facebook.com/Zara/",
+        "twitter": "https://twitter.com/ZARA/",
+        "pinterest": "https://www.pinterest.com/zaraofficial/",
+        "youtube": "https://www.youtube.com/user/zara"
+
+    },
+
+    "title":{
+        "home_page": "ZARA Bosnia And Herzegovina | Sale"
+
+    },
+
+    "item":{
+        "pants": "Pants"
+
+    },
+
+    "socials":{
+        "tiktok": "TIKTOK",
+        "instagram": "INSTAGRAM",
+        "facebook": "FACEBOOK",
+        "twitter": "TWITTER",
+        "pinterest": "PINTEREST",
+        "youtube": "YOUTUBE"
+    },
+
+    "country":{
+        "bosnia": "Bosnia And Herzegovina"
+    },
+
+    "subcategory_section":{
+        "woman": "WOMAN",
+        "man": "MAN",
+        "kids": "KIDS"
+    },
+
+    "login":{
+        "email": "ilma001g@gmail.com",
+        "password": "Maliprinc2001"
+
+    },
+
+    "registration":{
+        "email": "testingzarawebsite1@gmail.com",
+        "password": "Testingwebsite123",
+        "name": "Testing1",
+        "surname": "Testing1",
+        "telephone": "61 031 166"
+
+    },
+
+    "billing_info":{
+        "address": "Petrakijina 22",
+        "postal_code": "71000",
+        "city": "Sarajevo"
+    },
+
+    "credentials": {
+        "email": "test1@gmail.com",
+        "name": "Ilma",
+        "surname": "Gusinac",
+        "password": "password123",
+        "phone": "61031166"
+    },
+    "verification_message": {
+        "registartion_message": "Your account has been created."
+    }
+}
