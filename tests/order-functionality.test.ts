@@ -6,8 +6,6 @@ import * as path from "path";
 import { FilteringJeansPage } from "../core/page-objects/filtering-jeans-page";
 import { LoginPage } from "../core/page-objects/login-page";
 import { CartPage } from "../core/page-objects/cart-page";
-import { BillingInfoPage } from "../core/page-objects/billinginfo-page";
-import { CheckoutMethodSelection } from "../core/page-objects/checkout-methodselect-page";
 
 
 const dataFilePath = path.resolve(__dirname, "../core/data/data.json");
@@ -18,8 +16,6 @@ let homePage: HomePage;
 let filteringJeansPage: FilteringJeansPage;
 let loginPage: LoginPage;
 let cartPage: CartPage;
-let billingInfoPage: BillingInfoPage;
-let checkoutMethodSelection: CheckoutMethodSelection;
 
 beforeAll(async () => {
     driver = await createDriver(testData.url.home_page);
@@ -27,8 +23,6 @@ beforeAll(async () => {
     filteringJeansPage = new FilteringJeansPage(driver);
     loginPage = new LoginPage(driver);
     cartPage = new CartPage(driver);
-    billingInfoPage = new BillingInfoPage(driver);
-    checkoutMethodSelection = new CheckoutMethodSelection(driver);
 },10000);
 
 test("Order functionality", async () => {
@@ -50,7 +44,7 @@ test("Order functionality", async () => {
     await filteringJeansPage.click36Size();
     await homePage.clickCartButton();
     await cartPage.clickContinueButton();
-  
+    //other steps could not be conducted because we would need to chose the billing information which we cannot do
 },100000);
 
 afterAll(async () => {
